@@ -9,9 +9,8 @@ handlerFillForm();
 
 function onFormInput(event) { 
   let formInf = localStorage.getItem(STORAGE_KEY);
-  formInf = formInf ? JSON.parse(formInf) : '';
-  const { name, value } = event.target;
-  formInf[name] = value;
+  formInf = formInf ? JSON.parse(formInf) : {};  
+  formInf[event.target.name] = event.target.value;
   localStorage.setItem(STORAGE_KEY, JSON.stringify(formInf));
 }
 
