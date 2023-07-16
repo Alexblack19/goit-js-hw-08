@@ -7,9 +7,9 @@ const formEl = document.querySelector('.feedback-form');
 const STORAGE_KEY = 'feedback-form-state';
 handlerFillForm();
 
-function onFormInput(event) { 
+function onFormInput(event) {
   let formInf = localStorage.getItem(STORAGE_KEY);
-  formInf = formInf ? JSON.parse(formInf) : {};  
+  formInf = formInf ? JSON.parse(formInf) : {};
   formInf[event.target.name] = event.target.value;
   localStorage.setItem(STORAGE_KEY, JSON.stringify(formInf));
 }
@@ -125,6 +125,3 @@ formEl.addEventListener('submit', onFormSubmit);
 //     console.error('Remove state error: ', error.message);
 //   }
 // }
-
-
-
