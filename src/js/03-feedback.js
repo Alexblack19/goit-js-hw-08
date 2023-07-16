@@ -7,10 +7,10 @@ const formEl = document.querySelector('.feedback-form');
 const STORAGE_KEY = 'feedback-form-state';
 handlerFillForm();
 
-function onFormInput(event) {
+function onFormInput(e) {
   let formInf = localStorage.getItem(STORAGE_KEY);
   formInf = formInf ? JSON.parse(formInf) : {};
-  formInf[event.target.name] = event.target.value;
+  formInf[e.target.name] = e.target.value;
   localStorage.setItem(STORAGE_KEY, JSON.stringify(formInf));
 }
 
@@ -24,17 +24,17 @@ function handlerFillForm() {
   }
 }
 
-function onFormSubmit(event) {
-  event.preventDefault();
+function onFormSubmit(e) {
+  e.preventDefault();
   const {
     elements: { email, message },
-  } = event.currentTarget;
+  } = e.currentTarget;
   if (email.value === '' || message.value === '') {
     return alert('Please fill in all the fields!');
   } else {
     let formData = JSON.parse(localStorage.getItem(STORAGE_KEY));
     console.log(formData);
-    event.currentTarget.reset();
+    e.currentTarget.reset();
     localStorage.removeItem(STORAGE_KEY);
     formData = {};
   }
@@ -57,8 +57,8 @@ formEl.addEventListener('submit', onFormSubmit);
 
 // let formData = {};
 
-// function onFormInput(event) {
-//   const { name, value } = event.target;
+// function onFormInput(e) {
+//   const { name, value } = e.target;
 //   formData[name] = value;
 //   setLocalStorage(STORAGE_KEY, formData);
 // }
@@ -79,8 +79,8 @@ formEl.addEventListener('submit', onFormSubmit);
 //   }
 // }
 
-// function onSubmit(event) {
-//   event.preventDefault();
+// function onSubmit(e) {
+//   e.preventDefault();
 //   if (
 //     formEl.elements.email.value === '' ||
 //     formEl.elements.message.value === ''
@@ -90,7 +90,7 @@ formEl.addEventListener('submit', onFormSubmit);
 //   }
 //   console.log(formData);
 //   removeLocalStorage(STORAGE_KEY);
-//   event.target.reset();
+//   e.target.reset();
 //   formData = {};
 // }
 // // ==========================
