@@ -16,7 +16,6 @@ function onFormInput(event) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(formInf));
 }
 
-handlerFillForm();
 function handlerFillForm() {
   let saveData = localStorage.getItem(STORAGE_KEY);
   if (saveData) {
