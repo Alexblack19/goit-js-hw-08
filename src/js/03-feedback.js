@@ -7,7 +7,6 @@ const formEl = document.querySelector('.feedback-form');
 const STORAGE_KEY = 'feedback-form-state';
 handlerFillForm();
 
-formEl.addEventListener('input', throttle(onFormInput, 500));
 function onFormInput(event) { 
   let formInf = localStorage.getItem(STORAGE_KEY);
   formInf = formInf ? JSON.parse(formInf) : '';
@@ -26,7 +25,6 @@ function handlerFillForm() {
   }
 }
 
-formEl.addEventListener('submit', onFormSubmit);
 function onFormSubmit(event) {
   event.preventDefault();
   const {
@@ -42,6 +40,9 @@ function onFormSubmit(event) {
     formData = {};
   }
 }
+
+formEl.addEventListener('input', throttle(onFormInput, 500));
+formEl.addEventListener('submit', onFormSubmit);
 
 //*============
 //* Варіант 2
