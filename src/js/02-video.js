@@ -11,7 +11,6 @@ function onCurrentTime(e) {
 }
 
 const savedTime = localStorage.getItem(KEY_STORAGE);
-console.log(savedTime);
 vimeoPlayer.setCurrentTime(savedTime || 0);
 
 vimeoPlayer.off('play', onCurrentTime);
