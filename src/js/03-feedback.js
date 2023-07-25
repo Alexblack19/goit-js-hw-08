@@ -7,7 +7,7 @@ const formEl = document.querySelector('.feedback-form');
 const STORAGE_KEY = 'feedback-form-state';
 handlerFillForm();
 
-function onFormInput(e) {
+function handleFormInput(e) {
   let formInf = localStorage.getItem(STORAGE_KEY);
   formInf = formInf ? JSON.parse(formInf) : {};
   formInf[e.target.name] = e.target.value;
@@ -24,7 +24,7 @@ function handlerFillForm() {
   }
 }
 
-function onFormSubmit(e) {
+function handleFormSubmit(e) {
   e.preventDefault();
   const {
     elements: { email, message },
@@ -40,8 +40,8 @@ function onFormSubmit(e) {
   }
 }
 
-formEl.addEventListener('input', throttle(onFormInput, 500));
-formEl.addEventListener('submit', onFormSubmit);
+formEl.addEventListener('input', throttle(handleFormInput, 500));
+formEl.addEventListener('submit', handleFormSubmit);
 
 //*============
 //* Варіант 2
